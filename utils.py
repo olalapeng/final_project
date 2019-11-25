@@ -34,6 +34,7 @@ def get_header(app):
     )
     return header
 
+
 # tap click to
 def get_menu():
     menu = html.Div(
