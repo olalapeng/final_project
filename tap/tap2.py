@@ -24,7 +24,7 @@ def create_layout(app):
                                     # plot here example
 
                                     # dcc.Graph(
-                                    #     id='example-graph',
+                                    #     id='example-graph5',
                                     #     figure={
                                     #         'data': [
                                     #             {'x': [1, 2, 3], 'y': [4, 1, 2], 'type': 'bar', 'name': 'SF'},
@@ -48,7 +48,7 @@ def create_layout(app):
                                     # plot here example
 
                                     # dcc.Graph(
-                                    #     id='example-graph',
+                                    #     id='example-graph6',
                                     #     figure={
                                     #         'data': [
                                     #             {'x': [1, 2, 3], 'y': [4, 1, 2], 'type': 'bar', 'name': 'SF'},
@@ -76,7 +76,7 @@ def create_layout(app):
                                     # plot here example
 
                                     # dcc.Graph(
-                                    #     id='example-graph',
+                                    #     id='example-graph7',
                                     #     figure={
                                     #         'data': [
                                     #             {'x': [1, 2, 3], 'y': [4, 1, 2], 'type': 'bar', 'name': 'SF'},
@@ -127,3 +127,5 @@ def create_layout(app):
         ],
         className="page",
     )
+
+"print"
