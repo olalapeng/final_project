@@ -76,4 +76,4 @@ def make_dash_table(df):
     return table
 
 
-print("test")
+print("test ")
