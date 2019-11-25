@@ -74,3 +74,6 @@ def make_dash_table(df):
             html_row.append(html.Td([row[i]]))
         table.append(html.Tr(html_row))
     return table
+
+
+print("test")
