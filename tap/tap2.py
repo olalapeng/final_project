@@ -5,6 +5,8 @@ from utils import Header, make_dash_table
 import pandas as pd
 import pathlib
 
+df = pd.read_excel('https://s3.amazonaws.com/programmingforanalytics/NBA_data.xlsx')
+
 
 def create_layout(app):
     return html.Div(
@@ -36,6 +38,7 @@ def create_layout(app):
                                     #         }
                                     #     }
                                     # )
+
                                 ],
                                 className="six columns",
                             ),
@@ -45,21 +48,32 @@ def create_layout(app):
                                         ["plot2"],
                                         className="subtitle padded",
                                     ),
-                                    # plot here example
 
-                                    # dcc.Graph(
-                                    #     id='example-graph6',
-                                    #     figure={
-                                    #         'data': [
-                                    #             {'x': [1, 2, 3], 'y': [4, 1, 2], 'type': 'bar', 'name': 'SF'},
-                                    #             {'x': [1, 2, 3], 'y': [2, 4, 5], 'type': 'bar',
-                                    #              'name': u'Montréal'},
-                                    #         ],
-                                    #         'layout': {
-                                    #             'title': 'Dash Data Visualization'
-                                    #         }
-                                    #     }
-                                    # )
+                                    # Scatter plot of player's salaries
+                                    dcc.Graph(
+                                        id='graph-scatter',
+                                        className='my_graph',
+                                        figure={
+                                            'data': [{
+                                                'x': df['Name'],
+                                                'y': df['Salary'],
+                                                'type': 'scatter',
+                                                'mode': 'markers',
+
+                                            }],
+                                            'layout': {
+                                                'title': 'Distribution of NBA players salaries',
+                                                'height': 600,
+                                                'yaxis': {'hoverformat': '.2%'},
+                                                'margin': {'l': 35, 'r': 35, 't': 50, 'b': 80},
+
+                                            }
+                                        },
+                                        config={
+                                            'displayModeBar': False
+                                        }
+
+                                    )
 
                                 ],
                                 className="six columns",
@@ -88,6 +102,7 @@ def create_layout(app):
                                     #         }
                                     #     }
                                     # )
+
                                 ],
                                 className="twelve columns",
                             )
@@ -120,7 +135,7 @@ def create_layout(app):
                         className="row ",
                     ),
 
-                  #end
+                    # end
                 ],
                 className="sub_page",
             ),
@@ -128,4 +143,3 @@ def create_layout(app):
         className="page",
     )
 
-"print"
