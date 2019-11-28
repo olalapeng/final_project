@@ -2,6 +2,7 @@ import dash_html_components as html
 import dash_core_components as dcc
 
 
+
 def Header(app):
     return html.Div([get_header(app), html.Br([]), get_menu()])
 
@@ -40,12 +41,12 @@ def get_menu():
     menu = html.Div(
         [
             dcc.Link(
-                "tap1",
+                "Summary",
                 href="/final_project/tap1",
                 className="tab",
             ),
             dcc.Link(
-                "tap2",
+                "PLot And Table",
                 href="/final_project/tap2",
                 className="tab",
             ),
@@ -55,7 +56,7 @@ def get_menu():
                 className="tab"
             ),
             dcc.Link(
-                "tap4",
+                "Player Comparision",
                 href="/final_project/tap4",
                 className="tab",
             ),
@@ -65,12 +66,13 @@ def get_menu():
     return menu
 
 
-def make_dash_table(df):
-    """ Return a dash definition of an HTML table for a Pandas dataframe """
-    table = []
-    for index, row in df.iterrows():
-        html_row = []
-        for i in range(len(row)):
-            html_row.append(html.Td([row[i]]))
-        table.append(html.Tr(html_row))
-    return table
+def generate_table(dataframe, max_rows=10):
+    return html.Table(
+        # Header
+        [html.Tr([html.Th(col) for col in dataframe.columns])] +
+
+        # Body
+        [html.Tr([
+            html.Td(dataframe.iloc[i][col]) for col in dataframe.columns
+        ]) for i in range(min(len(dataframe), max_rows))]
+    )
